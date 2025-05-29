@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>WebChat n8n</title>
+  <link href="https://cdn.jsdelivr.net/npm/@n8n/chat/dist/style.css" rel="stylesheet" />
+
+</head>
+<body>
+  <!-- El widget de chat se inyecta automáticamente -->
+
+  <script type="module">
+    import { createChat } from 'https://cdn.jsdelivr.net/npm/@n8n/chat/dist/chat.bundle.es.js';
+
+    createChat ( { 
+    webhookUrl : 'http://localhost:5678/webhook/6fa25a60-bbaf-464b-9a43-af8220f880e0/chat' , /* Aqui se debe colocar la URL del webhook o URL del chat en el servidor */
+    webhookConfig : { 
+        method : 'POST' , 
+        headers : { } 
+    } , 
+    target : '#n8n-chat' , 
+    mode : 'window' , 
+    chatInputKey : 'chatInput' , 
+    chatSessionKey : 'sessionId' , 
+    metadata : { } , 
+    showWelcomeScreen : false , 
+    defaultLanguage : 'en' , 
+    initialMessages : [ 
+        '¡Hola! 👋' , 
+        'Mi nombre es IntiCo. ¿Cómo puedo ayudarte hoy?' 
+    ] , 
+    i18n : { 
+        en : { 
+            title : '¡Hola! 👋' , 
+            subtitle : "Inicia un chat. Estamos aquí para ayudarte las 24 horas, los 7 días de la semana." , 
+            footer : '' , 
+            getStarted : 'Nueva conversación' , 
+            inputPlaceholder : 'Escribe tu pregunta..' , 
+        } , 
+    } , 
+} ) ;
+  </script>
+</body>
+</html>
